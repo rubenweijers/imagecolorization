@@ -6,6 +6,7 @@ from tqdm import tqdm
 from colorizers import *
 
 parser = argparse.ArgumentParser()
+parser.add_argument('--input-path', type=str, help='Path to folder of training images', default='imgs/train/')
 parser.add_argument('--use_gpu', action='store_true', help='whether to use GPU')
 opt = parser.parse_args()
 
@@ -19,7 +20,7 @@ if (opt.use_gpu):
 
 
 # load training data from folder
-train_folder = './input/218/train/100/original/'
+train_folder = opt.input_path
 
 # default size to process images is 256x256
 # grab L channel in both original ("orig") and resized ("rs") resolutions
