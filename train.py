@@ -1,6 +1,8 @@
 import argparse
 import os
 
+from tqmd import tqdm
+
 from colorizers import *
 
 parser = argparse.ArgumentParser()
@@ -48,7 +50,7 @@ train_imgs = train_imgs[:3]
 
 # Train loop
 for epoch in range(1):
-    for i, img in enumerate(train_imgs):
+    for i, img in enumerate(tqdm(train_imgs)):
         # Forward pass
         out_eccv16 = colorizer_eccv16(img)
         out_siggraph17 = colorizer_siggraph17(img)
